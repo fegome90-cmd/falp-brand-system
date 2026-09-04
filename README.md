@@ -8,6 +8,22 @@ Repositorio canónico e independiente de identidad visual, design tokens estruct
 
 ---
 
+## Instalación
+**Prerrequisitos:** Node.js 18+, Git y acceso al repo privado en GitHub.
+```bash
+# Opción A — clonar para trabajar o contribuir
+git clone https://github.com/fegome90-cmd/falp-brand-system.git
+cd falp-brand-system
+npm run verify
+```
+```bash
+# Opción B — instalar como dependencia (requiere acceso al repo privado)
+npm install github:fegome90-cmd/falp-brand-system
+```
+Verificá la instalación corriendo `npm run check` desde el checkout (`verify` + `lint:ci`): debe terminar con `ALL VERIFICATIONS PASSED` y cero errores de lint.
+
+---
+
 ## 1. Arquitectura en Capas
 
 El sistema separa estrictamente la fuente original institucional de las adaptaciones digitales y los artefactos de salida:
@@ -144,3 +160,9 @@ Para comprobar la integridad de todos los activos, hashes SHA-256 y corresponden
 npm run verify
 npm pack --dry-run
 ```
+
+---
+
+## Licencia
+
+Propietaria — todos los derechos reservados. Paquete privado (`UNLICENSED`) para uso interno de la Fundación Arturo López Pérez. No distribuir fuera de la organización sin autorización.
