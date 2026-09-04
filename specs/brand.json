@@ -10,7 +10,7 @@
   "logo": {
     "primary": "logos/derived/header-inline.svg",
     "alternates": ["logos/derived/favicon-waveform.svg"],
-    "notes": "FALP wordmark (Fundación Arturo López Pérez): inline header/nav SVG, two-color — institutional blue #004990 paths with gold #f5c300 arc and dot. favicon-1.svg is the site favicon: blue rounded square with white waveform stroke and gold dot."
+    "notes": "FALP wordmark (Fundación Arturo López Pérez): inline header/nav SVG, two-color — institutional blue #004990 paths with gold #f5c300 arc and dot. favicon-waveform.svg is the site favicon: blue rounded square with white waveform stroke and gold dot."
   },
   "colors": [
     {

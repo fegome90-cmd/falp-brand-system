@@ -140,8 +140,8 @@
   {
     "path": "specs/brand.json",
     "classification": "spec",
-    "sha256": "773097377f6e972fb1a7db65648fd752f51f293a1bc9bafd711a7ebaefde48d0",
-    "bytes": 5676
+    "sha256": "63fa30907450a1d176a6821060cf5b0289cc27eaa5a74bf0e17d075b08fc3082",
+    "bytes": 5683
   },
   {
     "path": "specs/guide.md",

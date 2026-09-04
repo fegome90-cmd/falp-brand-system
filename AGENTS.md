@@ -13,6 +13,7 @@ Skip these → you will invent invalid colors, edit generated output as source, 
 ## Build and Test
 
 - Verify: `npm run verify` (must exit 0: SHA-256 integrity + token mappings)
+- Final gate: `npm run check` (= verify && lint:ci, must exit 0) — never declare a task done on `verify` alone
 - Pack dry-run: `npm run pack:dry`
 
 ## Working Rules
@@ -22,7 +23,7 @@ Skip these → you will invent invalid colors, edit generated output as source, 
 - Change identity at the source layer: edit `tokens/`, then mirror consistently in `adapters/`; never edit `adapters/` alone.
 - Keep product-specific derivatives in `logos/derived/`; never promote them to `logos/official/`.
 - Use Montserrat (display) / Inter (body) for web artifacts; reserve Myriad Pro for print contexts per `manuales/6Tipografias.pdf`.
-- Run `npm run verify` before claiming done.
+- Run `npm run check` before claiming done.
 
 ## References
 

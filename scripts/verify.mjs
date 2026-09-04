@@ -122,6 +122,65 @@ if (fs.existsSync(skillPath)) {
   assert(content.includes("description:"), "SKILL.md defines description trigger");
 }
 
+// 7. Manifest ↔ SHA256SUMS ↔ Disk Consistency
+console.log("\n[7] Verifying manifest ↔ SHA256SUMS ↔ disk consistency...");
+let manifest = null;
+try {
+  manifest = JSON.parse(fs.readFileSync(path.join(root, "sources/manifest.json"), "utf-8"));
+} catch (e) {
+  assert(false, `sources/manifest.json is not valid JSON: ${e.message}`);
+}
+if (manifest !== null) {
+  assert(Array.isArray(manifest), "sources/manifest.json is an array");
+  if (Array.isArray(manifest)) {
+    assert(fs.existsSync(shaFile), "sources/SHA256SUMS exists for manifest cross-check");
+    const shaMap = new Map();
+    if (fs.existsSync(shaFile)) {
+      for (const line of fs.readFileSync(shaFile, "utf-8").trim().split("\n")) {
+        if (!line.trim()) continue;
+        const [hash, relPath] = line.trim().split(/\s+/);
+        shaMap.set(relPath, hash);
+      }
+    }
+    const seen = new Set();
+    for (const entry of manifest) {
+      const label = entry && typeof entry.path === "string" ? entry.path : "(missing path)";
+      assert(entry && typeof entry.path === "string", `Manifest entry has string path (${label})`);
+      assert(
+        entry && typeof entry.sha256 === "string",
+        `Manifest entry has string sha256 (${label})`
+      );
+      assert(
+        entry && typeof entry.bytes === "number",
+        `Manifest entry has numeric bytes (${label})`
+      );
+      if (!entry || typeof entry.path !== "string") continue;
+      assert(!seen.has(entry.path), `No duplicate manifest path: ${entry.path}`);
+      seen.add(entry.path);
+      let data = null;
+      try {
+        data = fs.readFileSync(path.join(root, entry.path));
+      } catch {
+        assert(false, `Manifest file missing on disk: ${entry.path}`);
+        continue;
+      }
+      const actualHash = crypto.createHash("sha256").update(data).digest("hex");
+      assert(actualHash === entry.sha256, `Manifest SHA-256 match for ${entry.path}`);
+      assert(data.length === entry.bytes, `Manifest byte size match for ${entry.path}`);
+      assert(shaMap.has(entry.path), `Manifest path present in SHA256SUMS: ${entry.path}`);
+      if (shaMap.has(entry.path)) {
+        assert(
+          shaMap.get(entry.path) === entry.sha256,
+          `Manifest hash matches SHA256SUMS for ${entry.path}`
+        );
+      }
+    }
+    for (const relPath of shaMap.keys()) {
+      assert(seen.has(relPath), `SHA256SUMS path present in manifest: ${relPath}`);
+    }
+  }
+}
+
 console.log("\n===========================================");
 if (failures === 0) {
   console.log("🎉 ALL VERIFICATIONS PASSED (0 failures)");
