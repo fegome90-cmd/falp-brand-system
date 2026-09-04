@@ -14,7 +14,7 @@ Repositorio canónico e independiente de identidad visual, design tokens estruct
 # Opción A — clonar para trabajar o contribuir
 git clone https://github.com/fegome90-cmd/falp-brand-system.git
 cd falp-brand-system
-npm run verify
+npm run check
 ```
 ```bash
 # Opción B — instalar como dependencia (requiere acceso al repo privado)
