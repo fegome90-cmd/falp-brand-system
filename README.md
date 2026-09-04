@@ -9,15 +9,17 @@ Repositorio canónico e independiente de identidad visual, design tokens estruct
 ---
 
 ## Instalación
-**Prerrequisitos:** Node.js 18+, Git y acceso al repo privado en GitHub.
+**Prerrequisitos:** Node.js 18+ y Git.
 ```bash
 # Opción A — clonar para trabajar o contribuir
 git clone https://github.com/fegome90-cmd/falp-brand-system.git
 cd falp-brand-system
-npm run verify
+npm ci --no-audit --no-fund --engine-strict
+npm run check
 ```
+`npm ci` instala exactamente el lockfile; `npm run check` (`verify` + `lint:ci`) es el gate canónico.
 ```bash
-# Opción B — instalar como dependencia (requiere acceso al repo privado)
+# Opción B — instalar como dependencia
 npm install github:fegome90-cmd/falp-brand-system
 ```
 Verificá la instalación corriendo `npm run check` desde el checkout (`verify` + `lint:ci`): debe terminar con `ALL VERIFICATIONS PASSED` y cero errores de lint.
@@ -165,4 +167,6 @@ npm pack --dry-run
 
 ## Licencia
 
-Propietaria — todos los derechos reservados. Paquete privado (`UNLICENSED`) para uso interno de la Fundación Arturo López Pérez. No distribuir fuera de la organización sin autorización.
+Todos los derechos reservados (`UNLICENSED`).
+
+Este paquete está marcado como `private: true` y `UNLICENSED` para impedir su publicación accidental en npm. La visibilidad del repositorio GitHub y las políticas de distribución son decisiones de administración separadas.
