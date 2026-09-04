@@ -1,6 +1,6 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -96,10 +96,20 @@ for (const f of fs.readdirSync(manualesDir)) {
 
 // 5. Token to CSS Correspondence
 console.log("\n[5] Cross-checking Core Tokens against CSS Adapter...");
-const coreTokens = JSON.parse(fs.readFileSync(path.join(root, "tokens/core.json"), "utf-8"));
-const cssVars = fs.readFileSync(path.join(root, "adapters/css/variables.css"), "utf-8");
-const primaryHex = coreTokens.color.blue.institutional.value.toLowerCase();
-assert(cssVars.toLowerCase().includes(primaryHex), `Primary blue ${primaryHex} mapped in adapters/css/variables.css`);
+let coreTokens = null;
+try {
+  coreTokens = JSON.parse(fs.readFileSync(path.join(root, "tokens/core.json"), "utf-8"));
+} catch (e) {
+  assert(false, `tokens/core.json is not valid JSON: ${e.message}`);
+}
+if (coreTokens !== null) {
+  const cssVars = fs.readFileSync(path.join(root, "adapters/css/variables.css"), "utf-8");
+  const primaryHex = coreTokens.color.blue.institutional.value.toLowerCase();
+  assert(
+    cssVars.toLowerCase().includes(primaryHex),
+    `Primary blue ${primaryHex} mapped in adapters/css/variables.css`
+  );
+}
 
 // 6. Agent Skill Verification
 console.log("\n[6] Verifying Agent Skill frontmatter...");

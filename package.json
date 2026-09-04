@@ -28,7 +28,13 @@
   },
   "scripts": {
     "verify": "node scripts/verify.mjs",
+    "lint": "biome check --write .",
+    "lint:ci": "biome ci .",
+    "check": "npm run verify && npm run lint:ci",
     "pack:dry": "npm pack --dry-run"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15"
   },
   "keywords": [
     "falp",

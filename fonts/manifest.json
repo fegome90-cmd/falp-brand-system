@@ -22,7 +22,14 @@
       "family": "Inter",
       "weights": ["400", "600", "750", "800"],
       "files": ["fonts/inter-400-800.woff2"],
-      "fallbacks": ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+      "fallbacks": [
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "sans-serif"
+      ],
       "usage": "Cuerpo de texto, labels de componentes, tablas y cards"
     }
   }
