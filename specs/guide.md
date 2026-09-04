@@ -35,8 +35,8 @@ Note: an earlier provisional pass registered a dark palette (#000000 background)
 
 ## Logo
 
-- **Primary:** `logos/header-inline.svg` — the real FALP wordmark ("FALP, Fundación Arturo López Pérez"), inline SVG, two-color: blue `#004990` letterforms with a gold `#f5c300` arc and dot.
-- **Alternate:** `logos/favicon-1.svg` — site favicon: blue rounded square, white waveform stroke, gold dot.
+- **Primary:** `logos/derived/header-inline.svg` — the real FALP wordmark ("FALP, Fundación Arturo López Pérez"), inline SVG, two-color: blue `#004990` letterforms with a gold `#f5c300` arc and dot.
+- **Alternate:** `logos/derived/favicon-waveform.svg` — site favicon: blue rounded square, white waveform stroke, gold dot.
 - Clear space: keep the wordmark on white or the pale canvas; never place it on saturated gold.
 
 ## Voice & tone

@@ -1,6 +1,6 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -96,10 +96,20 @@ for (const f of fs.readdirSync(manualesDir)) {
 
 // 5. Token to CSS Correspondence
 console.log("\n[5] Cross-checking Core Tokens against CSS Adapter...");
-const coreTokens = JSON.parse(fs.readFileSync(path.join(root, "tokens/core.json"), "utf-8"));
-const cssVars = fs.readFileSync(path.join(root, "adapters/css/variables.css"), "utf-8");
-const primaryHex = coreTokens.color.blue.institutional.value.toLowerCase();
-assert(cssVars.toLowerCase().includes(primaryHex), `Primary blue ${primaryHex} mapped in adapters/css/variables.css`);
+let coreTokens = null;
+try {
+  coreTokens = JSON.parse(fs.readFileSync(path.join(root, "tokens/core.json"), "utf-8"));
+} catch (e) {
+  assert(false, `tokens/core.json is not valid JSON: ${e.message}`);
+}
+if (coreTokens !== null) {
+  const cssVars = fs.readFileSync(path.join(root, "adapters/css/variables.css"), "utf-8");
+  const primaryHex = coreTokens.color.blue.institutional.value.toLowerCase();
+  assert(
+    cssVars.toLowerCase().includes(primaryHex),
+    `Primary blue ${primaryHex} mapped in adapters/css/variables.css`
+  );
+}
 
 // 6. Agent Skill Verification
 console.log("\n[6] Verifying Agent Skill frontmatter...");
@@ -110,6 +120,65 @@ if (fs.existsSync(skillPath)) {
   assert(content.startsWith("---"), "SKILL.md starts with YAML frontmatter");
   assert(content.includes("name: falp-branding"), "SKILL.md defines name: falp-branding");
   assert(content.includes("description:"), "SKILL.md defines description trigger");
+}
+
+// 7. Manifest ↔ SHA256SUMS ↔ Disk Consistency
+console.log("\n[7] Verifying manifest ↔ SHA256SUMS ↔ disk consistency...");
+let manifest = null;
+try {
+  manifest = JSON.parse(fs.readFileSync(path.join(root, "sources/manifest.json"), "utf-8"));
+} catch (e) {
+  assert(false, `sources/manifest.json is not valid JSON: ${e.message}`);
+}
+if (manifest !== null) {
+  assert(Array.isArray(manifest), "sources/manifest.json is an array");
+  if (Array.isArray(manifest)) {
+    assert(fs.existsSync(shaFile), "sources/SHA256SUMS exists for manifest cross-check");
+    const shaMap = new Map();
+    if (fs.existsSync(shaFile)) {
+      for (const line of fs.readFileSync(shaFile, "utf-8").trim().split("\n")) {
+        if (!line.trim()) continue;
+        const [hash, relPath] = line.trim().split(/\s+/);
+        shaMap.set(relPath, hash);
+      }
+    }
+    const seen = new Set();
+    for (const entry of manifest) {
+      const label = entry && typeof entry.path === "string" ? entry.path : "(missing path)";
+      assert(entry && typeof entry.path === "string", `Manifest entry has string path (${label})`);
+      assert(
+        entry && typeof entry.sha256 === "string",
+        `Manifest entry has string sha256 (${label})`
+      );
+      assert(
+        entry && typeof entry.bytes === "number",
+        `Manifest entry has numeric bytes (${label})`
+      );
+      if (!entry || typeof entry.path !== "string") continue;
+      assert(!seen.has(entry.path), `No duplicate manifest path: ${entry.path}`);
+      seen.add(entry.path);
+      let data = null;
+      try {
+        data = fs.readFileSync(path.join(root, entry.path));
+      } catch {
+        assert(false, `Manifest file missing on disk: ${entry.path}`);
+        continue;
+      }
+      const actualHash = crypto.createHash("sha256").update(data).digest("hex");
+      assert(actualHash === entry.sha256, `Manifest SHA-256 match for ${entry.path}`);
+      assert(data.length === entry.bytes, `Manifest byte size match for ${entry.path}`);
+      assert(shaMap.has(entry.path), `Manifest path present in SHA256SUMS: ${entry.path}`);
+      if (shaMap.has(entry.path)) {
+        assert(
+          shaMap.get(entry.path) === entry.sha256,
+          `Manifest hash matches SHA256SUMS for ${entry.path}`
+        );
+      }
+    }
+    for (const relPath of shaMap.keys()) {
+      assert(seen.has(relPath), `SHA256SUMS path present in manifest: ${relPath}`);
+    }
+  }
 }
 
 console.log("\n===========================================");

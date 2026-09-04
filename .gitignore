@@ -1,2 +1,7 @@
 # Local Pi runtime state
 .atl/
+.pi/
+_ctx/
+
+# Dependencies
+node_modules/
