@@ -12,7 +12,7 @@ description: >
 
 ## 1. Bind tokens first
 
-Paste the seven roles from `brand.json` (or `system/variables.css`) into the
+Paste the seven roles from `specs/brand.json` (or `adapters/css/variables.css`) into the
 artifact's `:root` before writing any layout. Never invent hex outside:
 
 - Canvas `#f5f9fd` (background) · Paper `#ffffff` (surface) · Ink `#12385f` (fg)
@@ -26,7 +26,7 @@ FALP Blue is not a wash color: CTAs, links, focus rings, logo, tone-blue cards.
 
 - Display: **Montserrat** 600/750/800/850/900, letter-spacing −0.035em…−0.045em, line-height 1.02–1.04, `clamp(2rem, 3.25vw, 3.95rem)` for hero titles.
 - Body: **Inter** 400/600/750/800.
-- Load via `fonts/fonts.css` (self-hosted) or the Google Fonts URLs in `brand.json`. Ship fallback stacks verbatim.
+- Load via `adapters/css/fonts.css` (self-hosted) or the Google Fonts URLs in `specs/brand.json`. Ship fallback stacks verbatim.
 
 ## 3. Voice contract
 
