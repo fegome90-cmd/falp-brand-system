@@ -1,0 +1,248 @@
+[
+  {
+    "path": ".agents/skills/falp-branding/SKILL.md",
+    "classification": "agent-skill",
+    "sha256": "864336641c825c47499bef74b4a77638044a99f4d46c36d62eed06463c3dc77f",
+    "bytes": 3341
+  },
+  {
+    "path": "adapters/antd/theme.json",
+    "classification": "adapter",
+    "sha256": "a5e3c4e5219950f86e78a2cf6b4a2e01cd6616988afe2b5201c9276cbeb0d22e",
+    "bytes": 893
+  },
+  {
+    "path": "adapters/css/fonts.css",
+    "classification": "adapter",
+    "sha256": "540db84d0562757da795c855a4334fca62de1916efdad73203bf3c6cf3b7bce0",
+    "bytes": 672
+  },
+  {
+    "path": "adapters/css/variables.css",
+    "classification": "adapter",
+    "sha256": "579dc19bde490fe0b9fea65e4f7204310a176ace508b7d0485b107c456a9bce9",
+    "bytes": 16531
+  },
+  {
+    "path": "adapters/css/variables.dark.css",
+    "classification": "adapter",
+    "sha256": "245f96d2f962680122aae44df442104c6160b16820c7d3057213b781dd51898a",
+    "bytes": 8265
+  },
+  {
+    "path": "fonts/inter-400-800.woff2",
+    "classification": "derived/web",
+    "sha256": "8db00ff46c67b22cda8bed865acf7077651cac8d2841d5b40980556b48961931",
+    "bytes": 10280
+  },
+  {
+    "path": "fonts/manifest.json",
+    "classification": "derived/web",
+    "sha256": "9278dfb77b4f40677ad1b207ed6de83ebf9cc88fc82cedd79b8adc7da7d90c85",
+    "bytes": 1061
+  },
+  {
+    "path": "fonts/montserrat-600-900.woff2",
+    "classification": "derived/web",
+    "sha256": "9e2672d100bc36a37073fb250abfaa7394f5151bf5dda3f4d5fc281345eb391b",
+    "bytes": 10620
+  },
+  {
+    "path": "logos/derived/favicon-waveform.svg",
+    "classification": "derived/web",
+    "sha256": "973a3d449fbaa98b443bb3263faeeeb96899d056c3606f1a91936906f9902e7a",
+    "bytes": 335
+  },
+  {
+    "path": "logos/derived/header-inline.svg",
+    "classification": "derived/web",
+    "sha256": "d875791b7da7a46dc140e58a58ca9606a776df8eb370896031a5ed1de3d8eb73",
+    "bytes": 3719
+  },
+  {
+    "path": "logos/official/falp-logo-clean-alpha.png",
+    "classification": "official",
+    "sha256": "9b634228a03688292413cec70b8b1cd30a4c3c61e0bd2cb08ab7d5bd47d2c2d3",
+    "bytes": 95623
+  },
+  {
+    "path": "logos/official/falp-logo-transparent-cropped.png",
+    "classification": "official",
+    "sha256": "44854f622407e27d6d997e8f7a969e98a8c9996c553d9d2235ca2c723407a337",
+    "bytes": 21028
+  },
+  {
+    "path": "logos/official/logo-falp.svg",
+    "classification": "official",
+    "sha256": "81da18f0122c8f9230872e13becba5e9b80bf8783bf935640252595a34f95ca5",
+    "bytes": 3674
+  },
+  {
+    "path": "logos/official/logo_falp_h.svg",
+    "classification": "official",
+    "sha256": "cee3e3953ba023e09144e4c59b441b884bd80f7ce339756ae7c0dccb11b282e4",
+    "bytes": 3689
+  },
+  {
+    "path": "logos/official/logo_falp_h_compat.png",
+    "classification": "official",
+    "sha256": "00efc34a13f702f0a442d30ec694181fea502c5d634112cf9632549b3745796f",
+    "bytes": 7293
+  },
+  {
+    "path": "manuales/2Logotipo-e-isologotipo.pdf",
+    "classification": "official",
+    "sha256": "b03c12b31a1aecf400617a15a87bf429bd396ef893af4b490666f840534fcf37",
+    "bytes": 234189
+  },
+  {
+    "path": "manuales/5Colores.pdf",
+    "classification": "official",
+    "sha256": "ae2d08a3a7499d77f07a3c9b2f46c2c353b852d5672b2adc18646e4f47a98b3d",
+    "bytes": 528515
+  },
+  {
+    "path": "manuales/6Tipografias.pdf",
+    "classification": "official",
+    "sha256": "de864bafe49692f70b27a03e5c97bd0138aea784d12915d5890f13bcb4de05af",
+    "bytes": 871738
+  },
+  {
+    "path": "manuales/MANUAL-DE-NORMAS-FALP-25-B.pdf",
+    "classification": "official",
+    "sha256": "b0e0b35465f7caedca2dd889d7413353c6fcd2d873eefb6ff64e3628da43ffa0",
+    "bytes": 9241233
+  },
+  {
+    "path": "specs/BRAND-SYSTEM.md",
+    "classification": "spec",
+    "sha256": "61f7c65b346e6ea033df2d60bd243c105453eb8dff0e682734ac1993140e3a86",
+    "bytes": 2736
+  },
+  {
+    "path": "specs/DESIGN.md",
+    "classification": "spec",
+    "sha256": "9ad5d9faffc7fc7f63ca022421a7e29e76f82b7b13a27e5c2cf72c8f96070edb",
+    "bytes": 3930
+  },
+  {
+    "path": "specs/RESOURCES.md",
+    "classification": "spec",
+    "sha256": "192088f2d614eda5c9d2e714b9b7c5a8bd58cfa992befe301259af58d7c0f130",
+    "bytes": 11491
+  },
+  {
+    "path": "specs/SLIDE-DESIGN-SYSTEM.md",
+    "classification": "spec",
+    "sha256": "c7baba28dd5c59e1dad393bd8d79430e381c1ca567bd8e2df01b08d4f4724bd5",
+    "bytes": 52093
+  },
+  {
+    "path": "specs/brand.json",
+    "classification": "spec",
+    "sha256": "26a1253867927bba5853f7ec14136211b2ccfe6b43cc860b15761572c2056112",
+    "bytes": 5828
+  },
+  {
+    "path": "specs/guide.md",
+    "classification": "spec",
+    "sha256": "5824317227f893d9304d22f3f24e0edadc6e8b3a5b4361257fc9a42e79b579a6",
+    "bytes": 6736
+  },
+  {
+    "path": "templates/artifacts/deck.html",
+    "classification": "template",
+    "sha256": "6fdd74e4ac77fb77bf9715fed95ecf961c6d6d39b160ef61046a99a976a16840",
+    "bytes": 48817
+  },
+  {
+    "path": "templates/artifacts/email.html",
+    "classification": "template",
+    "sha256": "7046dff5ac4c290090c00c623aa5b04610e0fa82b64793faec1877bee440c659",
+    "bytes": 25119
+  },
+  {
+    "path": "templates/artifacts/form.html",
+    "classification": "template",
+    "sha256": "bc9d086f4e30cb822f1ea248809718f289e33e83a67f82e299ac9701b2ae8d4b",
+    "bytes": 29200
+  },
+  {
+    "path": "templates/artifacts/landing.html",
+    "classification": "template",
+    "sha256": "1d54db6dd25f27b2c377a53812be9b586f0af3039383a0e35fab17583040bcda",
+    "bytes": 80355
+  },
+  {
+    "path": "templates/artifacts/newsletter.html",
+    "classification": "template",
+    "sha256": "f0321bf3b0710c8708ad92a8e85448f02c3f2d021feb98228f72201c8a2b2488",
+    "bytes": 23654
+  },
+  {
+    "path": "templates/artifacts/poster.html",
+    "classification": "template",
+    "sha256": "21099ef3ad473e0ea07c85ce3076920ce9e83a5a991a123f216c7170c4e3a61a",
+    "bytes": 18805
+  },
+  {
+    "path": "templates/brand.html",
+    "classification": "template",
+    "sha256": "758b4765c405e3393c9ddcd47b15dbb153cba8c0333d3566092c5b7cfc794bee",
+    "bytes": 64623
+  },
+  {
+    "path": "templates/index.html",
+    "classification": "template",
+    "sha256": "2342a21f8f140fc8fe8cd1ca3c77a6728b2099b3151b6bf3537367fece683b75",
+    "bytes": 273539
+  },
+  {
+    "path": "templates/kit.dark.html",
+    "classification": "template",
+    "sha256": "a4763c898bfb85fd4c6a4d1fe99ca12f592638ab582ba011fa57a4496d0454be",
+    "bytes": 78884
+  },
+  {
+    "path": "templates/kit.html",
+    "classification": "template",
+    "sha256": "fec0e444e8c6608f82429b3ad11b63502690a60c862bca4da0183287b788e5df",
+    "bytes": 78873
+  },
+  {
+    "path": "themes/compact.json",
+    "classification": "token/model",
+    "sha256": "dc2c2b779f530afb2098198faf536a07f0de4b41be8a0058ad1ff81d920f0c29",
+    "bytes": 5297
+  },
+  {
+    "path": "themes/dark.json",
+    "classification": "token/model",
+    "sha256": "46398067b090095f938dc5175f76f91cad99389bdbb4b561c296d168bcd7b6dc",
+    "bytes": 5295
+  },
+  {
+    "path": "themes/default.json",
+    "classification": "token/model",
+    "sha256": "0d8c15b15c0efe811f9f321107f0615cf08093b4ca53f9f3a880cf97793b7f21",
+    "bytes": 5298
+  },
+  {
+    "path": "tokens/core.json",
+    "classification": "token/model",
+    "sha256": "0141bfea9b71c48f3f8e25bed636afac1ad0ec10a0c47292322411e0b8b8b6be",
+    "bytes": 1940
+  },
+  {
+    "path": "tokens/seed.json",
+    "classification": "token/model",
+    "sha256": "ce29e52fd0c1c05f04d34bfec8869ab23f1ddb00e56ed01b64b1f254b7c1ee54",
+    "bytes": 810
+  },
+  {
+    "path": "tokens/semantic.json",
+    "classification": "token/model",
+    "sha256": "fba902dcf83217771b358fc874dfe506c7d2c99e1e00c180701ba86f7ec86c6e",
+    "bytes": 1024
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "name": "@falp/brand-system",
+  "version": "0.1.0",
+  "description": "FALP (Fundación Arturo López Pérez) Layered Brand System, Design Tokens, and Assets with Cryptographic Provenance",
+  "private": true,
+  "main": "adapters/css/variables.css",
+  "style": "adapters/css/variables.css",
+  "files": [
+    "tokens",
+    "themes",
+    "adapters",
+    "fonts",
+    "logos",
+    "specs",
+    "sources",
+    ".agents"
+  ],
+  "exports": {
+    "./css/variables.css": "./adapters/css/variables.css",
+    "./css/variables.dark.css": "./adapters/css/variables.dark.css",
+    "./css/fonts.css": "./adapters/css/fonts.css",
+    "./tokens/core.json": "./tokens/core.json",
+    "./tokens/semantic.json": "./tokens/semantic.json",
+    "./themes/default.json": "./themes/default.json",
+    "./themes/dark.json": "./themes/dark.json",
+    "./themes/compact.json": "./themes/compact.json",
+    "./antd/theme.json": "./adapters/antd/theme.json"
+  },
+  "scripts": {
+    "verify": "node scripts/verify.mjs",
+    "pack:dry": "npm pack --dry-run"
+  },
+  "keywords": [
+    "falp",
+    "design-system",
+    "tokens",
+    "branding",
+    "open-design",
+    "agent-skills"
+  ],
+  "author": "Felipe Gonzalez",
+  "license": "UNLICENSED"
+}

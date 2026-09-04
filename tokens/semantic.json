@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "FALP Brand Semantic Tokens",
+  "version": "0.1.0",
+  "surface": {
+    "canvas": {
+      "value": "{color.blue.canvas}",
+      "resolved": "#f5f9fd"
+    },
+    "paper": {
+      "value": "{color.neutral.white}",
+      "resolved": "#ffffff"
+    }
+  },
+  "text": {
+    "primary": {
+      "value": "{color.blue.deep}",
+      "resolved": "#12385f"
+    },
+    "secondary": {
+      "value": "{color.neutral.slate}",
+      "resolved": "#6b7c93"
+    }
+  },
+  "border": {
+    "default": {
+      "value": "{color.blue.hairline}",
+      "resolved": "#d7e4ef"
+    }
+  },
+  "action": {
+    "primary": {
+      "value": "{color.blue.institutional}",
+      "resolved": "#004990"
+    },
+    "focus": {
+      "value": "#008db5",
+      "resolved": "#008db5"
+    }
+  },
+  "highlight": {
+    "decision": {
+      "value": "{color.gold.accent}",
+      "resolved": "#f5c300"
+    },
+    "technical": {
+      "value": "{color.cyan.tech}",
+      "resolved": "#009fe3"
+    }
+  }
+}

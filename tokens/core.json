@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "FALP Brand Core Tokens",
+  "version": "0.1.0",
+  "authority": "MANUAL-DE-NORMAS-FALP-25-B / 5Colores.pdf",
+  "color": {
+    "blue": {
+      "institutional": {
+        "value": "#004990",
+        "type": "color",
+        "description": "Azul institucional principal FALP"
+      },
+      "deep": {
+        "value": "#12385f",
+        "type": "color",
+        "description": "Azul profundo para textos y headings"
+      },
+      "soft": {
+        "value": "#eff6fb",
+        "type": "color",
+        "description": "Azul suave para fondos de cards"
+      },
+      "hairline": {
+        "value": "#d7e4ef",
+        "type": "color",
+        "description": "Azul tenue para divisores y bordes"
+      },
+      "canvas": {
+        "value": "#f5f9fd",
+        "type": "color",
+        "description": "Fondo general de escenario"
+      }
+    },
+    "gold": {
+      "accent": {
+        "value": "#f5c300",
+        "type": "color",
+        "description": "Amarillo institucional para acentos, barras y decisiones"
+      },
+      "soft": {
+        "value": "#fffdf5",
+        "type": "color",
+        "description": "Dorado tenue para fondos semanticos"
+      }
+    },
+    "cyan": {
+      "tech": {
+        "value": "#009fe3",
+        "type": "color",
+        "description": "Acento tecnico para eyebrows y conectores"
+      }
+    },
+    "neutral": {
+      "white": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Blanco puro para cards y superficies"
+      },
+      "slate": {
+        "value": "#6b7c93",
+        "type": "color",
+        "description": "Gris slate para texto secundario y labels"
+      }
+    }
+  },
+  "typography": {
+    "official_print": {
+      "primary": "Myriad Pro",
+      "secondary": "Source Sans Pro",
+      "tertiary": "Calibri"
+    },
+    "web_derived": {
+      "display": "Montserrat",
+      "body": "Inter"
+    }
+  }
+}

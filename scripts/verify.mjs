@@ -1,0 +1,122 @@
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(__dirname, "..");
+
+console.log("=== FALP Brand System Verification Suite ===");
+let failures = 0;
+
+function assert(condition, message) {
+  if (!condition) {
+    console.error(`❌ FAIL: ${message}`);
+    failures++;
+  } else {
+    console.log(`✅ PASS: ${message}`);
+  }
+}
+
+// 1. SHA256SUMS Integrity Check
+console.log("\n[1] Verifying SHA256SUMS against disk assets...");
+const shaFile = path.join(root, "sources/SHA256SUMS");
+assert(fs.existsSync(shaFile), "sources/SHA256SUMS exists");
+
+if (fs.existsSync(shaFile)) {
+  const lines = fs.readFileSync(shaFile, "utf-8").trim().split("\n");
+  for (const line of lines) {
+    if (!line.trim()) continue;
+    const [expectedHash, relPath] = line.trim().split(/\s+/);
+    const targetFile = path.join(root, relPath);
+    if (!fs.existsSync(targetFile)) {
+      assert(false, `File missing for hash: ${relPath}`);
+      continue;
+    }
+    const data = fs.readFileSync(targetFile);
+    const actualHash = crypto.createHash("sha256").update(data).digest("hex");
+    assert(actualHash === expectedHash, `SHA-256 match for ${relPath}`);
+  }
+}
+
+// 2. JSON Validation
+console.log("\n[2] Verifying JSON schemas and parsing...");
+const jsonDirs = ["tokens", "themes", "sources", "fonts", "specs", "adapters/antd"];
+for (const dir of jsonDirs) {
+  const fullDir = path.join(root, dir);
+  if (!fs.existsSync(fullDir)) continue;
+  for (const f of fs.readdirSync(fullDir)) {
+    if (f.endsWith(".json")) {
+      const p = path.join(fullDir, f);
+      try {
+        JSON.parse(fs.readFileSync(p, "utf-8"));
+        assert(true, `Valid JSON: ${path.relative(root, p)}`);
+      } catch (e) {
+        assert(false, `Invalid JSON in ${path.relative(root, p)}: ${e.message}`);
+      }
+    }
+  }
+}
+
+// 3. SVG XML & viewBox Validation
+console.log("\n[3] Verifying SVG vector assets...");
+for (const sub of ["official", "derived"]) {
+  const logoDir = path.join(root, "logos", sub);
+  if (!fs.existsSync(logoDir)) continue;
+  for (const f of fs.readdirSync(logoDir)) {
+    if (f.endsWith(".svg")) {
+      const p = path.join(logoDir, f);
+      const content = fs.readFileSync(p, "utf-8");
+      const hasSvgTag = content.includes("<svg") && content.includes("</svg>");
+      const hasViewBox = content.includes("viewBox=");
+      assert(hasSvgTag && hasViewBox, `SVG structure & viewBox for ${path.relative(root, p)}`);
+    }
+  }
+}
+
+// 4. Font & PDF Magic Bytes
+console.log("\n[4] Verifying binary headers (WOFF2 / PDF)...");
+const fontsDir = path.join(root, "fonts");
+for (const f of fs.readdirSync(fontsDir)) {
+  if (f.endsWith(".woff2")) {
+    const buf = fs.readFileSync(path.join(fontsDir, f));
+    const magic = buf.subarray(0, 4).toString("utf-8");
+    assert(magic === "wOF2", `Magic bytes wOF2 for fonts/${f}`);
+  }
+}
+
+const manualesDir = path.join(root, "manuales");
+for (const f of fs.readdirSync(manualesDir)) {
+  if (f.endsWith(".pdf")) {
+    const buf = fs.readFileSync(path.join(manualesDir, f));
+    const magic = buf.subarray(0, 4).toString("utf-8");
+    assert(magic === "%PDF", `Magic bytes %PDF for manuales/${f}`);
+  }
+}
+
+// 5. Token to CSS Correspondence
+console.log("\n[5] Cross-checking Core Tokens against CSS Adapter...");
+const coreTokens = JSON.parse(fs.readFileSync(path.join(root, "tokens/core.json"), "utf-8"));
+const cssVars = fs.readFileSync(path.join(root, "adapters/css/variables.css"), "utf-8");
+const primaryHex = coreTokens.color.blue.institutional.value.toLowerCase();
+assert(cssVars.toLowerCase().includes(primaryHex), `Primary blue ${primaryHex} mapped in adapters/css/variables.css`);
+
+// 6. Agent Skill Verification
+console.log("\n[6] Verifying Agent Skill frontmatter...");
+const skillPath = path.join(root, ".agents/skills/falp-branding/SKILL.md");
+assert(fs.existsSync(skillPath), ".agents/skills/falp-branding/SKILL.md exists");
+if (fs.existsSync(skillPath)) {
+  const content = fs.readFileSync(skillPath, "utf-8");
+  assert(content.startsWith("---"), "SKILL.md starts with YAML frontmatter");
+  assert(content.includes("name: falp-branding"), "SKILL.md defines name: falp-branding");
+  assert(content.includes("description:"), "SKILL.md defines description trigger");
+}
+
+console.log("\n===========================================");
+if (failures === 0) {
+  console.log("🎉 ALL VERIFICATIONS PASSED (0 failures)");
+  process.exit(0);
+} else {
+  console.error(`💥 VERIFICATION FAILED with ${failures} errors`);
+  process.exit(1);
+}

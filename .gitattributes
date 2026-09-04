@@ -1,0 +1,11 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Binary files
+*.pdf binary
+*.png binary
+*.woff2 binary
+*.svg text
+*.json text
+*.css text
+*.md text
