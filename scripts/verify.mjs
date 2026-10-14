@@ -131,7 +131,7 @@ function getPath(obj, dotted) {
 function rootBlock(css, label) {
   if (css === null) return null;
   const stripped = css.replace(/\/\*[\s\S]*?\*\//g, "");
-  const match = stripped.match(/:root\s*\{([\s\S]*?)\n\}/);
+  const match = stripped.match(/:root\s*\{([^}]*)\}/);
   if (!match) {
     assert(false, `${label}: no :root { } block found`);
     return null;
