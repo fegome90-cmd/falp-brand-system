@@ -14,8 +14,8 @@
   {
     "path": "adapters/css/fonts.css",
     "classification": "adapter",
-    "sha256": "64a9d3a46fd6b7cc6cbc2aee5ee5f58eaa81472b2ebb50451f299e78ca77d7ee",
-    "bytes": 801
+    "sha256": "164ff31542e352d9a69bbb343a39616645e49641b2b9f39b0deb95cb090c8535",
+    "bytes": 811
   },
   {
     "path": "adapters/css/variables.css",
@@ -30,22 +30,34 @@
     "bytes": 8273
   },
   {
+    "path": "fonts/Inter-OFL.txt",
+    "classification": "derived/web-license",
+    "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+    "bytes": 4377
+  },
+  {
+    "path": "fonts/Montserrat-OFL.txt",
+    "classification": "derived/web-license",
+    "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e",
+    "bytes": 4400
+  },
+  {
     "path": "fonts/inter-400-800.woff2",
     "classification": "derived/web",
-    "sha256": "8db00ff46c67b22cda8bed865acf7077651cac8d2841d5b40980556b48961931",
-    "bytes": 10280
+    "sha256": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4",
+    "bytes": 48432
   },
   {
     "path": "fonts/manifest.json",
     "classification": "derived/web",
-    "sha256": "1419a2bfa87c0be04821fc89ff16119d228d10f19634a87e0bcfc7e391f25f5b",
-    "bytes": 1117
+    "sha256": "2e546594c722d53f1802fc4b105cb7fa438626450f0d5a7de91b4da3c6871a5c",
+    "bytes": 1674
   },
   {
     "path": "fonts/montserrat-600-900.woff2",
     "classification": "derived/web",
-    "sha256": "9e2672d100bc36a37073fb250abfaa7394f5151bf5dda3f4d5fc281345eb391b",
-    "bytes": 10620
+    "sha256": "6438d7b8ea9c7c3992d5e2fd2afdb1ff948570a3ef0bedae76247b51632960ba",
+    "bytes": 35508
   },
   {
     "path": "logos/derived/favicon-waveform.svg",
