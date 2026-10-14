@@ -39,7 +39,7 @@
       "hex": "#6b7c93",
       "oklch": "oklch(58.1% 0.041 256.0)",
       "name": "Slate",
-      "usage": "secondary text, captions (--muted; lighter tier #8a9aaf)"
+      "usage": "large text, icons and control borders only (4.26:1); small secondary text uses slate-strong #50677e (5.86:1, AA); lighter tier #8a9aaf is decorative/disabled only"
     },
     {
       "role": "border",

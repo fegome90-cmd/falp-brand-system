@@ -358,6 +358,14 @@ walkTokens(
       assertEqual(`${label} resolved matches core ${ref[1]}`, target, leaf.resolved, { ci: true });
     } else {
       assertHex(`${label} literal value`, leaf.value);
+      const registered = new Set();
+      walkTokens(core?.color, "color", (_, token) => registered.add(token.value?.toLowerCase()));
+      // Existing derived focus color is documented in SKILL.md; scope the exception by role.
+      const legacyFocus = key === "action.focus" && leaf.value === "#008db5";
+      assert(
+        registered.has(leaf.value?.toLowerCase()) || legacyFocus,
+        `${label} literal is registered or has a documented role-specific exception`
+      );
       assertEqual(`${label} value equals resolved`, leaf.value, leaf.resolved, { ci: true });
     }
   }
@@ -370,6 +378,7 @@ const ANTD_MAP = [
   ["colorLink", INSTITUTIONAL],
   ["colorTextBase", DEEP],
   ["colorBgBase", CANVAS],
+  ["colorTextSecondary", "color.neutral.slate-strong.value"],
 ];
 for (const [key, corePath] of ANTD_MAP) {
   assertEqual(
@@ -387,6 +396,7 @@ assertFontFamily(
 
 // 5d. Theme JSON mapping (top-level keys).
 const THEME_MAP = [
+  ["colorTextSecondary", "color.neutral.slate-strong.value"],
   ["colorPrimary", INSTITUTIONAL],
   ["colorInfo", INSTITUTIONAL],
   ["colorLink", INSTITUTIONAL],
@@ -412,6 +422,7 @@ const CSS_MAP = [
   ["--brand-color-info", INSTITUTIONAL],
   ["--brand-color-link", INSTITUTIONAL],
   ["--brand-color-bg-container", CANVAS],
+  ["--brand-color-text-secondary", "color.neutral.slate-strong.value"],
 ];
 for (const [name, corePath] of CSS_MAP) {
   assertEqual(
@@ -430,6 +441,70 @@ assertHex(
   "adapters/css/variables.dark.css --brand-color-primary",
   cssVar(cssDark, "--brand-color-primary")
 );
+
+// 5f. WCAG 2.1 contrast of semantic text on semantic surfaces.
+function luminance(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const c = Number.parseInt(hex.slice(i, i + 2), 16) / 255;
+    return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+function contrast(a, b) {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+}
+// [foreground, background, minimum ratio]. 4.5 = AA small text.
+const CONTRAST_PAIRS = [
+  ["text.primary", "surface.canvas", 4.5],
+  ["text.primary", "surface.paper", 4.5],
+  ["text.secondary", "surface.canvas", 4.5],
+  ["text.secondary", "surface.paper", 4.5],
+  ["text.secondary", "surface.soft-blue", 4.5],
+  ["text.secondary", "surface.tint", 4.5],
+  ["text.secondary", "surface.mist", 4.5],
+  ["action.primary", "surface.paper", 4.5],
+  ["text.on-gold", "surface.gold", 4.5],
+  ["text.on-gold", "surface.gold-accent", 4.5],
+  ["text.technical", "surface.paper", 4.5],
+  ["text.technical", "surface.cyan", 4.5],
+  ["text.tertiary", "surface.paper", 3],
+];
+for (const [fg, bg, min] of CONTRAST_PAIRS) {
+  const fgHex = getPath(semantic, `${fg}.resolved`);
+  const bgHex = getPath(semantic, `${bg}.resolved`);
+  if (!HEX.test(fgHex ?? "") || !HEX.test(bgHex ?? "")) {
+    assert(false, `Contrast pair ${fg} on ${bg}: tokens missing in tokens/semantic.json`);
+    continue;
+  }
+  const ratio = contrast(fgHex, bgHex);
+  assert(
+    ratio >= min,
+    `Contrast ${fg} ${fgHex} on ${bg} ${bgHex} = ${ratio.toFixed(2)}:1 (min ${min}:1)`
+  );
+}
+
+// Adapter-specific contrast: dark values must not inherit the light secondary token.
+for (const [name, theme] of Object.entries(themes)) {
+  for (const surface of ["colorBgContainer", "colorBgElevated", "colorBgLayout"]) {
+    const fg = theme?.colorTextSecondary;
+    const bg = theme?.[surface];
+    assert(
+      HEX.test(fg ?? "") && HEX.test(bg ?? "") && contrast(fg, bg) >= 4.5,
+      `themes/${name}.json secondary text on ${surface} meets 4.5:1`
+    );
+  }
+}
+assertEqual(
+  "dark CSS secondary matches dark theme",
+  themes.dark?.colorTextSecondary,
+  cssVar(cssDark, "--brand-color-text-secondary"),
+  { ci: true }
+);
+const fontsCss = readText("adapters/css/fonts.css") ?? "";
+for (const family of Object.values(core?.typography?.web_derived ?? {})) {
+  assert(fontsCss.includes(`font-family: "${family}";`), `Canonical @font-face for ${family}`);
+}
 
 // 6. Agent Skill Verification
 console.log("\n[6] Verifying Agent Skill frontmatter...");

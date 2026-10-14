@@ -1,3 +1,4 @@
+/* Import once. Canonical families: Montserrat (display), Inter (body). */
 @font-face {
   font-family: "Montserrat";
   src: url("../../fonts/montserrat-600-900.woff2") format("woff2");

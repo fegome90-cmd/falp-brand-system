@@ -2,25 +2,25 @@
   {
     "path": ".agents/skills/falp-branding/SKILL.md",
     "classification": "agent-skill",
-    "sha256": "4a8a29b19d5bfe294a4b74a770ec205655195ee728f32c3117929f0765eb8380",
-    "bytes": 3366
+    "sha256": "2d6b1b3ce00306a5d348461bb32e3dd0c6ed22a35f29b8afd7358b02dec0f639",
+    "bytes": 4155
   },
   {
     "path": "adapters/antd/theme.json",
     "classification": "adapter",
-    "sha256": "c1a099e5a53db3caa43500cc28571afa83fa06cf2762d9ffe6d5ba71951ae9b9",
-    "bytes": 894
+    "sha256": "68d438ad5f3bfa23a2609714b4d3be3273c8bdeb0a3acfaabcaf7e725a15d665",
+    "bytes": 931
   },
   {
     "path": "adapters/css/fonts.css",
     "classification": "adapter",
-    "sha256": "eea27430ac50c8eab0dca872aed805898cd45dd1c54738bbbb57353da395d5b2",
-    "bytes": 726
+    "sha256": "64a9d3a46fd6b7cc6cbc2aee5ee5f58eaa81472b2ebb50451f299e78ca77d7ee",
+    "bytes": 801
   },
   {
     "path": "adapters/css/variables.css",
     "classification": "adapter",
-    "sha256": "8a5b48cc48593d21c9a621c0914552a4751e415126a50c0105e12872e5a885aa",
+    "sha256": "b4f8fc7a52a3466f52e4469b31d271b765e147bb58798c7315e277eec4826642",
     "bytes": 16547
   },
   {
@@ -140,8 +140,8 @@
   {
     "path": "specs/brand.json",
     "classification": "spec",
-    "sha256": "63fa30907450a1d176a6821060cf5b0289cc27eaa5a74bf0e17d075b08fc3082",
-    "bytes": 5683
+    "sha256": "5e8079972d40ceeb2c42373c0e730d2c1634e853a4d6e367a88f20ee452378d1",
+    "bytes": 5789
   },
   {
     "path": "specs/guide.md",
@@ -212,7 +212,7 @@
   {
     "path": "themes/compact.json",
     "classification": "token/model",
-    "sha256": "98570196e626b0766baa3ef7c2aa1fe52d286dbb2930d95f493ea1d771372d84",
+    "sha256": "41c171024677d3052d223f26844aff79d54755b955fe1bd558cc09ab937b7cdd",
     "bytes": 5298
   },
   {
@@ -224,14 +224,14 @@
   {
     "path": "themes/default.json",
     "classification": "token/model",
-    "sha256": "24c462a9ee8c60c124880f0902b4bb645b51e8d99d34be6c1fc6b8e82d93a98f",
+    "sha256": "7f96b03246a911fc646f72c8db120369d5b9f73c73f7846fa713f1509db33dcb",
     "bytes": 5299
   },
   {
     "path": "tokens/core.json",
     "classification": "token/model",
-    "sha256": "52cb4bcfdf74cfd0ae472d023c6c0ff44a26386a4ccd1a802b94773aad1107c9",
-    "bytes": 1941
+    "sha256": "f9c93d8944ad3120b873f7b08f16c7ef3098479d05d4f3014a3259d3524ff47d",
+    "bytes": 2897
   },
   {
     "path": "tokens/seed.json",
@@ -242,7 +242,7 @@
   {
     "path": "tokens/semantic.json",
     "classification": "token/model",
-    "sha256": "c7b173e65a21bddd8995c5789ce3ecfade53e8332b4313527242a3eb03f3ac1a",
-    "bytes": 1025
+    "sha256": "1f4c548ca01042381c3bda40f44854c8ce385cc1f85a068d8ddf9bdd6956afd8",
+    "bytes": 1915
   }
 ]

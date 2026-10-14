@@ -170,3 +170,17 @@ npm pack --dry-run
 Todos los derechos reservados (`UNLICENSED`).
 
 Este paquete está marcado como `private: true` y `UNLICENSED` para impedir su publicación accidental en npm. La visibilidad del repositorio GitHub y las políticas de distribución son decisiones de administración separadas.
+
+### Accessible web text (v0.2.0 candidate)
+
+Use `text.secondary` / `neutral.slate-strong` on light surfaces. The default and compact themes,
+CSS light adapter and Ant Design adapter mirror this token; dark secondary stays separately
+contrast-tested against dark surfaces. `text.on-gold` reuses Ink, including solid Gold (7.22:1),
+and `border.gold` reuses Line. Cyan tech is decorative, not text on white (2.97:1, below even 3:1).
+Import `adapters/css/fonts.css` once; consumers must request `Inter` and `Montserrat` exactly.
+
+`npm run check` verifies declared opaque text/surface pairs and rejects unregistered semantic
+color literals. Algorithmic themes remain derived palettes, not additions to core. These checks
+are not a whole-page accessibility audit: opacity, gradients, imagery and other composited
+backgrounds require checks in the consuming application. Consumer color exceptions must name
+the file, value and reason; do not register every legacy literal as a new brand token.
