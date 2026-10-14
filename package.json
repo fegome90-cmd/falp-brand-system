@@ -1,7 +1,7 @@
 {
   "name": "@falp/brand-system",
   "version": "0.1.0",
-  "description": "FALP (Fundación Arturo López Pérez) Layered Brand System, Design Tokens, and Assets with Cryptographic Provenance",
+  "description": "FALP (Fundaci\u00f3n Arturo L\u00f3pez P\u00e9rez) Layered Brand System, Design Tokens, and Assets with Cryptographic Provenance",
   "private": true,
   "main": "adapters/css/variables.css",
   "style": "adapters/css/variables.css",
@@ -30,11 +30,13 @@
     "verify": "node scripts/verify.mjs",
     "lint": "biome check --write .",
     "lint:ci": "biome ci .",
-    "check": "npm run verify && npm run lint:ci",
-    "pack:dry": "npm pack --dry-run"
+    "check": "npm run verify && npm run test:fonts && npm run lint:ci",
+    "pack:dry": "npm pack --dry-run",
+    "test:fonts": "node --test tests/fonts.test.mjs"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.15"
+    "@biomejs/biome": "2.4.15",
+    "fontkit": "2.0.4"
   },
   "engines": {
     "node": ">=18"

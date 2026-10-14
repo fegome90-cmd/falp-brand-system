@@ -1,6 +1,6 @@
 {
   "name": "FALP Typography System",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "institutional_print_authority": {
     "source": "manuales/6Tipografias.pdf",
     "primary": "Myriad Pro",
@@ -16,7 +16,11 @@
       "tracking": "-0.045em",
       "line_height": "1.02-1.04",
       "fallbacks": ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-      "usage": "Títulos hero, portadas, cabeceras de diapositivas ejecutivas"
+      "usage": "Títulos hero, portadas, cabeceras de diapositivas ejecutivas",
+      "subset": "latin",
+      "source_url": "https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2",
+      "license": "fonts/Montserrat-OFL.txt",
+      "coverage": "Latin alphabet, Latin-1 Spanish accents and punctuation; verified from binary cmap"
     },
     "body": {
       "family": "Inter",
@@ -30,7 +34,11 @@
         "Segoe UI",
         "sans-serif"
       ],
-      "usage": "Cuerpo de texto, labels de componentes, tablas y cards"
+      "usage": "Cuerpo de texto, labels de componentes, tablas y cards",
+      "subset": "latin",
+      "source_url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "license": "fonts/Inter-OFL.txt",
+      "coverage": "Latin alphabet, Latin-1 Spanish accents and punctuation; verified from binary cmap"
     }
   }
 }
