@@ -19,7 +19,8 @@
     "motionBase": 0,
     "wireframe": false,
     "motion": true,
-    "colorLink": "#004990"
+    "colorLink": "#004990",
+    "colorTextSecondary": "#50677e"
   },
   "algorithm": "default"
 }

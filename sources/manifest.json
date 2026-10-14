@@ -2,20 +2,20 @@
   {
     "path": ".agents/skills/falp-branding/SKILL.md",
     "classification": "agent-skill",
-    "sha256": "408095eb3169f038c65008b26f3eb5611e7ba287e69ebe77cd0d63150acc46bf",
-    "bytes": 3882
+    "sha256": "2d6b1b3ce00306a5d348461bb32e3dd0c6ed22a35f29b8afd7358b02dec0f639",
+    "bytes": 4155
   },
   {
     "path": "adapters/antd/theme.json",
     "classification": "adapter",
-    "sha256": "c1a099e5a53db3caa43500cc28571afa83fa06cf2762d9ffe6d5ba71951ae9b9",
-    "bytes": 894
+    "sha256": "68d438ad5f3bfa23a2609714b4d3be3273c8bdeb0a3acfaabcaf7e725a15d665",
+    "bytes": 931
   },
   {
     "path": "adapters/css/fonts.css",
     "classification": "adapter",
-    "sha256": "eea27430ac50c8eab0dca872aed805898cd45dd1c54738bbbb57353da395d5b2",
-    "bytes": 726
+    "sha256": "64a9d3a46fd6b7cc6cbc2aee5ee5f58eaa81472b2ebb50451f299e78ca77d7ee",
+    "bytes": 801
   },
   {
     "path": "adapters/css/variables.css",
@@ -212,7 +212,7 @@
   {
     "path": "themes/compact.json",
     "classification": "token/model",
-    "sha256": "98570196e626b0766baa3ef7c2aa1fe52d286dbb2930d95f493ea1d771372d84",
+    "sha256": "41c171024677d3052d223f26844aff79d54755b955fe1bd558cc09ab937b7cdd",
     "bytes": 5298
   },
   {
@@ -224,14 +224,14 @@
   {
     "path": "themes/default.json",
     "classification": "token/model",
-    "sha256": "24c462a9ee8c60c124880f0902b4bb645b51e8d99d34be6c1fc6b8e82d93a98f",
+    "sha256": "7f96b03246a911fc646f72c8db120369d5b9f73c73f7846fa713f1509db33dcb",
     "bytes": 5299
   },
   {
     "path": "tokens/core.json",
     "classification": "token/model",
-    "sha256": "f59c4b9fe7d8c7b788ad39dfdad04cc783552c0df4a05992c1c5866881c7a28d",
-    "bytes": 3180
+    "sha256": "f9c93d8944ad3120b873f7b08f16c7ef3098479d05d4f3014a3259d3524ff47d",
+    "bytes": 2897
   },
   {
     "path": "tokens/seed.json",
@@ -242,7 +242,7 @@
   {
     "path": "tokens/semantic.json",
     "classification": "token/model",
-    "sha256": "8919faa4e770b4397b4ea9ba8e30cc6504bd2fb28f55d7436b97373bd30662a0",
-    "bytes": 1730
+    "sha256": "1f4c548ca01042381c3bda40f44854c8ce385cc1f85a068d8ddf9bdd6956afd8",
+    "bytes": 1915
   }
 ]

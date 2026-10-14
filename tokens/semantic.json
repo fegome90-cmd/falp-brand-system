@@ -26,6 +26,14 @@
     "cyan": {
       "value": "{color.cyan.soft}",
       "resolved": "#e8f8fb"
+    },
+    "soft-blue": {
+      "value": "{color.blue.soft}",
+      "resolved": "#eff6fb"
+    },
+    "gold-accent": {
+      "value": "{color.gold.accent}",
+      "resolved": "#f5c300"
     }
   },
   "text": {
@@ -42,8 +50,8 @@
       "resolved": "#6b7c93"
     },
     "on-gold": {
-      "value": "{color.gold.ink}",
-      "resolved": "#6f5700"
+      "value": "{color.blue.deep}",
+      "resolved": "#12385f"
     },
     "technical": {
       "value": "{color.cyan.ink}",
@@ -56,8 +64,8 @@
       "resolved": "#d7e4ef"
     },
     "gold": {
-      "value": "{color.gold.hairline}",
-      "resolved": "#e6d6a0"
+      "value": "{color.blue.hairline}",
+      "resolved": "#d7e4ef"
     }
   },
   "action": {

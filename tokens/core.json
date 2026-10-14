@@ -51,23 +51,13 @@
         "value": "#fffdf5",
         "type": "color",
         "description": "Dorado tenue para fondos semanticos"
-      },
-      "ink": {
-        "value": "#6f5700",
-        "type": "color",
-        "description": "Dorado oscuro para texto y cifras sobre superficies doradas (6,78:1 sobre gold.soft)"
-      },
-      "hairline": {
-        "value": "#e6d6a0",
-        "type": "color",
-        "description": "Borde dorado tenue para superficies doradas"
       }
     },
     "cyan": {
       "tech": {
         "value": "#009fe3",
         "type": "color",
-        "description": "Acento tecnico para eyebrows y conectores"
+        "description": "Acento decorativo para barras y conectores; no texto sobre blanco (2,97:1, tampoco texto grande)"
       },
       "soft": {
         "value": "#e8f8fb",

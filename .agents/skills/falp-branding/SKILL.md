@@ -18,8 +18,9 @@ artifact's `:root` before writing any layout. Never invent hex outside:
 - Canvas `#f5f9fd` (background) · Paper `#ffffff` (surface) · Ink `#12385f` (fg)
 - Slate strong `#50677e` (secondary text, AA) · Slate `#6b7c93` (large text, icons, control borders only) · Line `#d7e4ef` (border)
 - FALP Blue `#004990` (accent — sparing, high signal) · FALP Gold `#f5c300` (accent-secondary — bars/badges only)
-- Registered support tones (`tokens/core.json` v0.2.0): cyan ink `#00769f` (technical/eyebrow text), cyan soft `#e8f8fb`, gold ink `#6f5700` (text on gold surfaces), gold hairline `#e6d6a0`, blue mist `#eaf2fa`, blue tint `#f8fbfe`.
-- Derived literals measured from source that are legal: cyan `#009fe3` (bars, connectors, ≥24px text only), focus `#008db5`, lighter slate tier `#8a9aaf` (decorative/disabled only).
+- Registered support tones (`tokens/core.json` v0.2.0): cyan ink `#00769f` (technical/eyebrow text), cyan soft `#e8f8fb`, blue mist `#eaf2fa`, blue tint `#f8fbfe`.
+- Derived literals measured from source that are legal: cyan `#009fe3` (decorative bars and connectors only; 2.97:1 also fails large text on white), focus `#008db5`, lighter slate tier `#8a9aaf` (decorative/disabled only).
+- Gold surfaces use Ink `#12385f` for text (7.22:1 on solid FALP Gold); reuse Line for subtle borders rather than adding gold variants.
 - Contrast: never set text in cyan `#009fe3` (2.97:1) or gold `#f5c300` (1.66:1) on white; `npm run verify` checks the semantic text/surface pairs.
 
 FALP Blue is not a wash color: CTAs, links, focus rings, logo, tone-blue cards.
@@ -28,7 +29,7 @@ FALP Blue is not a wash color: CTAs, links, focus rings, logo, tone-blue cards.
 
 - Display: **Montserrat** 600/750/800/850/900, letter-spacing −0.035em…−0.045em, line-height 1.02–1.04, `clamp(2rem, 3.25vw, 3.95rem)` for hero titles.
 - Body: **Inter** 400/600/750/800.
-- Load via `adapters/css/fonts.css` (self-hosted) or the Google Fonts URLs in `specs/brand.json`. Ship fallback stacks verbatim.
+- Load via `adapters/css/fonts.css` (self-hosted) or the Google Fonts URLs in `specs/brand.json`. Use the canonical family names `Inter` and `Montserrat`; do not create `FALP Inter` / `FALP Montserrat` aliases. Import the faces once at the application entry point. Ship fallback stacks verbatim.
 
 ## 3. Voice contract
 
