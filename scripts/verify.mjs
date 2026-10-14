@@ -412,6 +412,7 @@ const CSS_MAP = [
   ["--brand-color-info", INSTITUTIONAL],
   ["--brand-color-link", INSTITUTIONAL],
   ["--brand-color-bg-container", CANVAS],
+  ["--brand-color-text-secondary", "color.neutral.slate-strong.value"],
 ];
 for (const [name, corePath] of CSS_MAP) {
   assertEqual(
@@ -430,6 +431,46 @@ assertHex(
   "adapters/css/variables.dark.css --brand-color-primary",
   cssVar(cssDark, "--brand-color-primary")
 );
+
+// 5f. WCAG 2.1 contrast of semantic text on semantic surfaces.
+function luminance(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const c = Number.parseInt(hex.slice(i, i + 2), 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+function contrast(a, b) {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+}
+// [foreground, background, minimum ratio]. 4.5 = AA small text.
+const CONTRAST_PAIRS = [
+  ["text.primary", "surface.canvas", 4.5],
+  ["text.primary", "surface.paper", 4.5],
+  ["text.secondary", "surface.canvas", 4.5],
+  ["text.secondary", "surface.paper", 4.5],
+  ["text.secondary", "surface.tint", 4.5],
+  ["text.secondary", "surface.mist", 4.5],
+  ["action.primary", "surface.paper", 4.5],
+  ["text.on-gold", "surface.gold", 4.5],
+  ["text.technical", "surface.paper", 4.5],
+  ["text.technical", "surface.cyan", 4.5],
+  ["text.tertiary", "surface.paper", 3],
+];
+for (const [fg, bg, min] of CONTRAST_PAIRS) {
+  const fgHex = getPath(semantic, `${fg}.resolved`);
+  const bgHex = getPath(semantic, `${bg}.resolved`);
+  if (!HEX.test(fgHex ?? "") || !HEX.test(bgHex ?? "")) {
+    assert(false, `Contrast pair ${fg} on ${bg}: tokens missing in tokens/semantic.json`);
+    continue;
+  }
+  const ratio = contrast(fgHex, bgHex);
+  assert(
+    ratio >= min,
+    `Contrast ${fg} ${fgHex} on ${bg} ${bgHex} = ${ratio.toFixed(2)}:1 (min ${min}:1)`
+  );
+}
 
 // 6. Agent Skill Verification
 console.log("\n[6] Verifying Agent Skill frontmatter...");

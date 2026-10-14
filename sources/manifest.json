@@ -2,8 +2,8 @@
   {
     "path": ".agents/skills/falp-branding/SKILL.md",
     "classification": "agent-skill",
-    "sha256": "4a8a29b19d5bfe294a4b74a770ec205655195ee728f32c3117929f0765eb8380",
-    "bytes": 3366
+    "sha256": "408095eb3169f038c65008b26f3eb5611e7ba287e69ebe77cd0d63150acc46bf",
+    "bytes": 3882
   },
   {
     "path": "adapters/antd/theme.json",
@@ -20,7 +20,7 @@
   {
     "path": "adapters/css/variables.css",
     "classification": "adapter",
-    "sha256": "8a5b48cc48593d21c9a621c0914552a4751e415126a50c0105e12872e5a885aa",
+    "sha256": "b4f8fc7a52a3466f52e4469b31d271b765e147bb58798c7315e277eec4826642",
     "bytes": 16547
   },
   {
@@ -140,8 +140,8 @@
   {
     "path": "specs/brand.json",
     "classification": "spec",
-    "sha256": "63fa30907450a1d176a6821060cf5b0289cc27eaa5a74bf0e17d075b08fc3082",
-    "bytes": 5683
+    "sha256": "5e8079972d40ceeb2c42373c0e730d2c1634e853a4d6e367a88f20ee452378d1",
+    "bytes": 5789
   },
   {
     "path": "specs/guide.md",
@@ -230,8 +230,8 @@
   {
     "path": "tokens/core.json",
     "classification": "token/model",
-    "sha256": "52cb4bcfdf74cfd0ae472d023c6c0ff44a26386a4ccd1a802b94773aad1107c9",
-    "bytes": 1941
+    "sha256": "f59c4b9fe7d8c7b788ad39dfdad04cc783552c0df4a05992c1c5866881c7a28d",
+    "bytes": 3180
   },
   {
     "path": "tokens/seed.json",
@@ -242,7 +242,7 @@
   {
     "path": "tokens/semantic.json",
     "classification": "token/model",
-    "sha256": "c7b173e65a21bddd8995c5789ce3ecfade53e8332b4313527242a3eb03f3ac1a",
-    "bytes": 1025
+    "sha256": "8919faa4e770b4397b4ea9ba8e30cc6504bd2fb28f55d7436b97373bd30662a0",
+    "bytes": 1730
   }
 ]

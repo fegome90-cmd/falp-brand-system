@@ -16,9 +16,11 @@ Paste the seven roles from `specs/brand.json` (or `adapters/css/variables.css`) 
 artifact's `:root` before writing any layout. Never invent hex outside:
 
 - Canvas `#f5f9fd` (background) · Paper `#ffffff` (surface) · Ink `#12385f` (fg)
-- Slate `#6b7c93` (muted) · Line `#d7e4ef` (border)
+- Slate strong `#50677e` (secondary text, AA) · Slate `#6b7c93` (large text, icons, control borders only) · Line `#d7e4ef` (border)
 - FALP Blue `#004990` (accent — sparing, high signal) · FALP Gold `#f5c300` (accent-secondary — bars/badges only)
-- Derived literals measured from source that are legal: cyan `#009fe3` (eyebrow text), focus `#008db5`, lighter slate tier `#8a9aaf`.
+- Registered support tones (`tokens/core.json` v0.2.0): cyan ink `#00769f` (technical/eyebrow text), cyan soft `#e8f8fb`, gold ink `#6f5700` (text on gold surfaces), gold hairline `#e6d6a0`, blue mist `#eaf2fa`, blue tint `#f8fbfe`.
+- Derived literals measured from source that are legal: cyan `#009fe3` (bars, connectors, ≥24px text only), focus `#008db5`, lighter slate tier `#8a9aaf` (decorative/disabled only).
+- Contrast: never set text in cyan `#009fe3` (2.97:1) or gold `#f5c300` (1.66:1) on white; `npm run verify` checks the semantic text/surface pairs.
 
 FALP Blue is not a wash color: CTAs, links, focus rings, logo, tone-blue cards.
 
@@ -51,7 +53,7 @@ slot with a diagram, tone card, or typographic panel.
 - Radius 14px (cards 10–14px), 1px borders, 8px baseline grid.
 - Decks: 16:9 presenter frame, top progress bar, keyboard nav (← →, Space, Home/End), numbered footer pagination; frame shadow `0 30px 80px rgba(32,58,82,0.17), 0 3px 12px rgba(32,58,82,0.08)`.
 - Cover: two-column grid — eyebrow + title + objective frame left, chapter index right.
-- Eyebrows: uppercase, letter-spacing 0.14em, cyan `#009fe3`, preceded by a gold bar.
+- Eyebrows: uppercase, letter-spacing 0.14em, cyan ink `#00769f`, preceded by a gold bar.
 - Tone cards on white, radius 10–14px, shadow `0 2px 8px rgba(18,56,95,0.04)`.
 - Primary CTA: FALP Blue `#004990`; visible focus `#008db5`; touch targets ≥44px (`controlHeight: 44`).
 

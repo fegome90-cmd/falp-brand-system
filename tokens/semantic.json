@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "FALP Brand Semantic Tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "surface": {
     "canvas": {
       "value": "{color.blue.canvas}",
@@ -10,6 +10,22 @@
     "paper": {
       "value": "{color.neutral.white}",
       "resolved": "#ffffff"
+    },
+    "tint": {
+      "value": "{color.blue.tint}",
+      "resolved": "#f8fbfe"
+    },
+    "mist": {
+      "value": "{color.blue.mist}",
+      "resolved": "#eaf2fa"
+    },
+    "gold": {
+      "value": "{color.gold.soft}",
+      "resolved": "#fffdf5"
+    },
+    "cyan": {
+      "value": "{color.cyan.soft}",
+      "resolved": "#e8f8fb"
     }
   },
   "text": {
@@ -18,14 +34,30 @@
       "resolved": "#12385f"
     },
     "secondary": {
+      "value": "{color.neutral.slate-strong}",
+      "resolved": "#50677e"
+    },
+    "tertiary": {
       "value": "{color.neutral.slate}",
       "resolved": "#6b7c93"
+    },
+    "on-gold": {
+      "value": "{color.gold.ink}",
+      "resolved": "#6f5700"
+    },
+    "technical": {
+      "value": "{color.cyan.ink}",
+      "resolved": "#00769f"
     }
   },
   "border": {
     "default": {
       "value": "{color.blue.hairline}",
       "resolved": "#d7e4ef"
+    },
+    "gold": {
+      "value": "{color.gold.hairline}",
+      "resolved": "#e6d6a0"
     }
   },
   "action": {
